@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Greetings Designer</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        table {
+            margin: 0 auto;
+        }
+        
+        td {
+            padding: 5%;
+        }
+        
+        .card {
+            background-color: rgb(233, 124, 138);
+            font-family: Georgia, serif;
+            height: auto;
+            width: 100%;
+            padding: 2%;
+        }
+        
+        button {
+            padding: 2%;
+            width: 100%;
+            background-color: black;
+            color: aliceblue;
+            height: 70px;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 5%;
+        }
+        
+        .textgre {
+            padding-top: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <button onclick="change_img()">Add the reciever's Photo</button><br><br>
+                <button onclick="change_img_pos()">Change Image's Position</button><br><br>
+                <button onclick="edit_text()">Edit Wish</button><br><br>
+                <button onclick="change_font_size()">Modify Font Size</button><br><br>
+                <button onclick="change_font_color()">Modify Font Color</button><br><br>
+            </td>
+            <td>
+                <div class="card">
+                    <img id="#img" src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="Greeting Image" height="250px">
+                    <div class="textgre">
+                        <h2 id="#heading">Specially For YOU</h2>
+                        <p id="#msg">ADD YOUR WISH HERE .</p>
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+    </table>
+    <script>
+        function change_img() {
+            var url = prompt("Enter new image URL: ");
+            var img = document.getElementById('#img');
+            img.src = url;
+        }
+
+        function change_img_pos() {
+            var pos = prompt("Image position (left, right, center)");
+            pos = pos.toLowerCase();
+            if (pos == "left") {
+                var img = document.getElementById('#img');
+                img.style.float = "left";
+            } else if (pos == "right") {
+                var img = document.getElementById('#img');
+                img.style.float = "right";
+
+            } else if (pos == "center") {
+                var img = document.getElementById('#img');
+                img.style.float = "none";
+            } else {
+                alert("Invalid Input. Enter only left, right or center");
+            }
+        }
+
+        function edit_text() {
+            var msg = prompt("Enter greeting: ");
+            var e = document.getElementById('#msg');
+            e.innerText = msg;
+        }
+
+        function change_font_size() {
+            var sz = parseFloat(prompt("Enter new font size in rem."));
+            document.body.style.fontSize = `${sz}rem`;
+        }
+
+        function change_font_color() {
+            var col = prompt("Enter new font color name");
+            document.body.style.color = col;
+        }
+    </script>
+</body>
+
+</html>

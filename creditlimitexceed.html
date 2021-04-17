@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Credit card expiry</title>
+    <script type="text/javascript">
+        function check() {
+            var ac_no = parseInt(prompt("Enter your Account No."));
+            var begin_bal = parseInt(prompt("Enter Beginning Balance"));
+            var exp = parseInt(prompt("Enter Expenditures"));
+            var credit_payments = parseInt(prompt("Enter Credit Payments"));
+            var limit = parseInt(prompt("Enter the allowed Credit Limit"));
+            var new_bal = begin_bal + exp - credit_payments;
+            document.write("\nAccount No: " + ac_no + "<br>");
+            document.write("\nBeginning Balance: " + begin_bal + "<br>");
+            document.write("\nTotal Expenditures: " + exp + "<br>");
+            document.write("\nTotal Credit Payments: " + credit_payments + "<br>");
+            document.write("\nCredit Limit: " + limit + "<br>");
+            document.write("\nNew Balance: " + new_bal + "<br>");
+            if (new_bal > limit) {
+                document.write("Credit Limit Exceeded");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="submit" value="Submit the details" onclick="check();">
+</body>
+
+</html>

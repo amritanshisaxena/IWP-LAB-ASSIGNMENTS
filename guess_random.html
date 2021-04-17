@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <style>
+        #p1 {
+            color: greenyellow;
+            font-size: 16px;
+            font-weight: bolder;
+        }
+        
+        body {
+            text-align: center;
+        }
+        
+        input[type="button"] {
+            color: aqua;
+            background-color: black;
+            font-family: cursive;
+        }
+    </style>
+</head>
+
+
+<body>
+    <p>Guess a random word first generate a hint : </p>
+
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <input type="button" value="Generate Hint" onclick="generate();"><br><br>
+    <form>
+        <input type="text" name="ans"><br><br>
+        <input type="button" value="Check" onclick="checks(this.form);">
+    </form>
+</body>
+<script type="text/javascript">
+    var i;
+    var check = ["forest", "tree", "flower", "sky", "grass",
+        "mountain", "happy", "rotating", "red", "fast"
+    ];
+    var dis = ["t e o s r f", "e t e r", "r w l e o f", "y s k", "s r g a s", "n a n o i t u m ",
+        "y p h p a", "g i a o n t t r", "d r e", "t a s f"
+    ];
+
+    function generate() {
+        i = parseInt(Math.random() * (9 - 0) + 0);
+        document.getElementById("p1").innerHTML = dis[i];
+        document.getElementById("p2").innerHTML = "Hint No." + (i + 1);
+    }
+
+    function checks(form) {
+        var val = form.ans.value;
+        if ((val.toLowerCase()).localeCompare(check[i]) === 0) alert("Correct!");
+        else alert("Incorrect!");
+    }
+</script>
+
+</html>

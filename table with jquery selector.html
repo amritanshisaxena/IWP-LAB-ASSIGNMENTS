@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <style>
+        tr,
+        td {
+            border: 1px solid white;
+        }
+        
+        th {
+            border: none !important;
+        }
+    </style>
+</head>
+
+<body style="background-color: aquamarine;">
+
+    <table style="width: 500px;margin: 0 auto;" class="table table-bordered">
+        <tr>
+            <b><th>First Name</th></b>
+            <b><th>Last Name</th></b>
+            <b><th>City</th></b>
+            <b><th>State</th></b>
+        </tr>
+        <tr>
+            <td>Mannix</td>
+            <td>Bolton</td>
+            <td>Merizo</td>
+            <td>Michigan</td>
+        </tr>
+        <tr>
+            <td>Suki</td>
+            <td>King</td>
+            <td>Fairmont</td>
+            <td>Oklohama</td>
+        </tr>
+        <tr>
+            <td>Shelby</td>
+            <td>English</td>
+            <td>Durham</td>
+            <td>Arkansas</td>
+        </tr>
+        <tr>
+            <td>Portia</td>
+            <td>Burns</td>
+            <td>Princeton</td>
+            <td>Rhode Island</td>
+        </tr>
+        <tr>
+            <td>Dacey</td>
+            <td>Young</td>
+            <td>Covina</td>
+            <td>South Carolina</td>
+        </tr>
+        <tr>
+            <td>Clark</td>
+            <td>Reyes</td>
+            <td>Grand Rapid</td>
+            <td>New Jersey</td>
+        </tr>
+        <tr>
+            <td>Marris</td>
+            <td>Decker</td>
+            <td>Seirra Madre</td>
+            <td>Georgia</td>
+        </tr>
+    </table>
+</body>
+<script>
+    $(document).ready(function() {
+        //for table row
+        $("th").css("background-color", "white")
+        $("tr:even").css("background-color", "white");
+        $("tr:odd").css({
+            "background-color": "gray",
+            "color": "white"
+        });
+    });
+</script>
+
+</html>

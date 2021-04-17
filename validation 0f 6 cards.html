@@ -1,0 +1,170 @@
+<html>
+
+<head>
+    <script>
+        function validateForm() {
+            var card = document.getElementById("card").value;
+            var cardnumber = document.forms["rkform"]["cardnumber"].value;
+            if (cardnumber == "") {
+                document.getElementById("carderror").style.display = "inlineblock";
+                document.getElementById("carderror").innerHTML = "*Card Number is required";
+                document.getElementById("cardnumber").focus();
+                return false;
+            } else if (isNaN(cardnumber)) {
+                document.getElementById("carderror").style.display = "inlineblock";
+                document.getElementById("carderror").innerHTML = "*Card Number is only number required";
+                document.getElementById("cardnumber").focus();
+                return false;
+            } else {
+                if (card == "ae") {
+                    if (!cardnumber.startsWith("34") && !cardnumber.startsWith("37")) {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*American Express Card Number is Invalid";
+                        document.getElementById("cardnumber").focus();
+                        return false;
+                    } else if (cardnumber.length != 15) {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*American Express Card Number is Length 15 Required";
+                        document.getElementById("cardnumber").focus();
+                        return false;
+                    } else {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*American Express Card is valid";
+                        return true;
+                    }
+                } else if (card == "dc") {
+                    if (!cardnumber.startsWith("300") && !cardnumber.startsWith("301") &&
+                        !cardnumber.startsWith("302") && !cardnumber.startsWith("303") &&
+                        !cardnumber.startsWith("304") && !cardnumber.startsWith("305")) {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*Diners Club Card Number is Invalid";
+                        document.getElementById("cardnumber").focus();
+                        return false;
+                    } else if (!cardnumber.includes("36") || !cardnumber.includes("38")) {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*Diners Club Card Number is 36 and 38 Required";
+                        document.getElementById("cardnumber").focus();
+                        return false;
+                    } else if (cardnumber.length != 14) {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*Diners Club Card Number is Length 15 Required";
+                        document.getElementById("cardnumber").focus();
+                        return false;
+                    } else {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*Diners Club Card is valid";
+                        return true;
+                    }
+                } else if (card == "d") {
+                    if (!cardnumber.startsWith("6011") && !cardnumber.startsWith("65")) {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*Discover Card Number is Invalid";
+                        document.getElementById("cardnumber").focus();
+                        return false;
+                    } else if (cardnumber.length != 16) {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*Discover Card Number is Length 15 Required";
+                        document.getElementById("cardnumber").focus();
+                        return false;
+                    } else {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*Discover Club Card is valid";
+                        return true;
+                    }
+                } else if (card == "j") {
+                    if (cardnumber.startsWith("2131") || cardnumber.startsWith("1800")) {
+                        if (cardnumber.length != 15) {
+                            document.getElementById("carderror").style.display = "inline-block";
+                            document.getElementById("carderror").innerHTML = "*JCB Card Number is Length 15 Required";
+                            document.getElementById("cardnumber").focus();
+                            return false;
+                        } else {
+                            document.getElementById("carderror").style.display = "inline-block";
+                            document.getElementById("carderror").innerHTML = "*JCB Club Card is valid";
+                            return true;
+                        }
+                    } else if (cardnumber.startsWith("35")) {
+                        if (cardnumber.length != 16) {
+                            document.getElementById("carderror").style.display = "inline-block";
+                            document.getElementById("carderror").innerHTML = "*JCB Card Number is Length 16 Required";
+                            document.getElementById("cardnumber").focus();
+                            return false;
+                        } else {
+                            document.getElementById("carderror").style.display = "inline-block";
+                            document.getElementById("carderror").innerHTML = "*JCB Club Card is valid";
+                            return true;
+                        }
+                    } else {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*JCB Card Number is Invalid";
+                        document.getElementById("cardnumber").focus();
+                        return false;
+                    }
+                } else if (card == "mc") {
+                    if (!cardnumber.startsWith("51") && !cardnumber.startsWith("52") &&
+                        !cardnumber.startsWith("53") && !cardnumber.startsWith("54") &&
+                        !cardnumber.startsWith("55")) {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*MasterCard Number is Invalid";
+                        document.getElementById("cardnumber").focus();
+                        return false;
+                    } else if (cardnumber.length != 16) {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*MasterCard Number is Length 15 Required";
+                        document.getElementById("cardnumber").focus();
+                        return false;
+                    } else {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*MasterCard is valid";
+                        return true;
+                    }
+                } else if (card == "v") {
+                    if (!cardnumber.startsWith("4")) {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*Visa Card Number is Invalid";
+                        document.getElementById("cardnumber").focus();
+                        return false;
+                    } else if (cardnumber.length != 16 || cardnumber.length == 13) {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*Visa New Card is 16 and Old card is 13 Length Required";
+                        document.getElementById("cardnumber").focus();
+                        return false;
+                    } else {
+                        document.getElementById("carderror").style.display = "inline-block";
+                        document.getElementById("carderror").innerHTML = "*Visa Card is valid";
+                        return true;
+                    }
+                } else {
+                    return false;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="rkform" autocomplete="off" onsubmit="return validateForm()">
+        <fieldset>
+            <legend>Payment Details</legend>
+
+            <label>Credit Card: </label>
+
+            <select name="card" id="card">
+<option value="ae">American Express</option>
+<option value="dc">Diners Club</option>
+<option value="d">Discover</option>
+<option value="j">JCB</option>
+<option value="mc">MasterCard</option>
+<option value="v">Visa</option>
+</select>
+            <span id="programerror" style="color:rgb(255, 0, 0);display:none"></span>
+            <br><br> <label>Card Number: </label>
+            <input type="text" name="cardnumber" id="cardnumber"> <span id="cardnumbererror" style="color:red;display:none"></span>
+            <br><br>
+            <input type="submit" value="Submit">
+            <span id="carderror" style="color:red;display:none"></span>
+        </fieldset>
+    </form>
+</body>
+
+</html>
